@@ -37,9 +37,9 @@ def classificar_agua(ph, temperatura):
 
         if ph < 6.0:
             return "Água ácida", "#EF4444"
-        elif ph > 8.5:
+        elif ph > 7.6:
             return "Água alcalina", "#EF9F27"
-        elif temperatura > 35:
+        elif temperatura > 30:
             return "Temperatura elevada", "#EF9F27"
         else:
             return "Faixa aceitável", "#5DCAA5"
@@ -818,7 +818,7 @@ html = """
         <div class="labels" id="labels"></div>
 
         <div class="chart-note" id="chart-note">
-          Faixa ideal de pH para água doce: 6.5 a 8.5.
+          Faixa ideal de pH para água doce: 6.5 a 7.6.
         </div>
       </div>
     </div>
