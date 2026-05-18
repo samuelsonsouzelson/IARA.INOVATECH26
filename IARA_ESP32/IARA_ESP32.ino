@@ -21,10 +21,10 @@ DallasTemperature sensors(&oneWire);
 
 float fatorDivisor = 2.0;
 
-// Valor que funcionou melhor no seu teste
-float tensaoReferenciaPH7 = 3.27;
+// Ajustado com base na sua imagem
+float tensaoReferenciaPH7 = 3.75;
 
-// Inclinação aproximada
+// Inclinação aproximada do sensor de pH
 float inclinacao = -5.70;
 
 void setup() {
@@ -53,6 +53,15 @@ void loop() {
   float tensaoSensorPH = tensaoGPIO * fatorDivisor;
 
   float ph = 7.0 + ((tensaoSensorPH - tensaoReferenciaPH7) * inclinacao);
+
+  // Limita o valor do pH entre 0 e 14
+  if (ph < 0) {
+    ph = 0;
+  }
+
+  if (ph > 14) {
+    ph = 14;
+  }
 
   // =========================
   // LEITURA DA TEMPERATURA
